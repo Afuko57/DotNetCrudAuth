@@ -1,1 +1,42 @@
+# .NET build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio files
+.vs/
+
+# DotEnv file with secrets
 .env
+
+# ASP.NET Core files
+appsettings.*.json
+appsettings.Development.json
+
+# Logs
+*.log
+
+# Database files
+*.mdf
+*.ldf
+
+# NuGet packages
+*.nupkg
+.nuget/
+
+# Rider IDE files
+.idea/
+
+# Resharper files
+_ReSharper*/
+
+# VS Code files (if you use VS Code)
+.vscode/
+
+# Publish output
+publish/
