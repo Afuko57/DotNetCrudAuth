@@ -19,19 +19,21 @@ namespace MyApiTest.DTOs
         [JsonPropertyName("token")]
         public string? Token { get; init; }
 
-        public AuthResponseDto(bool success, string message, string code = "")
+        public AuthResponseDto(bool success, string message, string code = "", string? token = null)
         {
             Success = success;
             Message = message;
             Code = code;
+            Token = token;
         }
 
-        public AuthResponseDto(bool success, string message, UserDto user, string code = "")
+        public AuthResponseDto(bool success, string message, UserDto user, string code = "", string? token = null)
         {
             Success = success;
             Message = message;
             User = user;
             Code = code;
+            Token = token;
         }
     }
 }

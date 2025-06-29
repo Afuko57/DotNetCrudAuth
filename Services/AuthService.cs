@@ -10,10 +10,12 @@ namespace MyApiTest.Services
     public class AuthService
     {
         private readonly IUserRepository _userRepository;
+        private readonly JwtService _jwtService;
 
-        public AuthService(IUserRepository userRepository)
+        public AuthService(IUserRepository userRepository, JwtService jwtService)
         {
             _userRepository = userRepository;
+            _jwtService = jwtService;
         }
 
         public async Task<AuthResponseDto> RegisterAsync(AuthRequestDto request)
@@ -114,11 +116,13 @@ namespace MyApiTest.Services
                 }
 
                 var userDto = user.ToDto();
+                var token = _jwtService.GenerateToken(user);
                 return new AuthResponseDto(
                     success: true,
                     message: "Login successful",
                     user: userDto,
-                    code: "LOGIN_SUCCESS"
+                    code: "LOGIN_SUCCESS",
+                    token: token
                 );
             }
             catch (Exception ex)
